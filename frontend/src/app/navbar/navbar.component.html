@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" [routerLink]="['/']" routerLinkActive="active">Clinic.MS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/viewpatient']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/viewinventory']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Inventory</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/faq']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/about']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function deleteConfirmation(id) {
+      if (window.confirm("Are you sure you want to delete this record?")) {
+        // If the user clicks "OK" in the confirmation popup, proceed with the deletion
+        deleteId(id);
+      }
+    }
+  
+    function deleteId(id) {
+      // Implement your delete logic here
+      console.log(`Deleting record with ID: ${id}`);
+    }
+  </script>
+<body>
+    <div class="container">
+        <!-- show message alert for delete -->
+        <div *ngIf="successmsg">
+            <div *ngIf="successmsg">
+                <div class="alert alert-success">
+                  <strong>{{ successmsg }}</strong>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+                </div>
+              </div>
+          </div>
+        <br><br>
+        <div align="center">
+            <button type="button" class="btn btn-primary" href="#" [routerLink]="['/addpatient']">Add New Patient</button>
+            <br><br>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col" class="text-center">NO.</th>
+                        <th scope="col" class="text-center">PATIENT ID</th>
+                        <th scope="col" class="text-center">PATIENT NAME</th>
+                        <th scope="col" class="text-center">PATIENT AGE</th>
+                        <th scope="col" class="text-center">PATIENT CONTACT NO.</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-primary" *ngFor='let us of listData'>
+                        <td class="text-center" scope="row">{{us.id}}</td>
+                        <td class="text-center">{{us.patientID}}</td>
+                        <td class="text-center">{{us.patientName}}</td>
+                        <td class="text-center">{{us.patientAge}}</td>
+                        <td class="text-center">{{us.patientContact}}</td>
+                        <td></td>
+                        <td class="d-flex">
+                            <button [routerLink]="['/updatepatient', us.id]" class="btn btn-primary">EDIT</button>
+                            &nbsp;
+                            <button (click)="deleteConfirmation(us.id)" class="btn btn-danger">REMOVE</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

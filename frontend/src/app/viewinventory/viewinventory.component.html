@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- show message alert for delete -->
+        <div *ngIf="successmsg">
+            <div *ngIf="successmsg">
+        <div class="alert alert-success">
+            <strong>{{ successmsg }}</strong>
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+          </div>
+            </div>
+        </div>
+        <br><br>
+        <div align="center">
+            <button type="button" class="btn btn-primary" href="#" [routerLink]="['/addinventory']">Add New Medicine</button>
+            <br><br>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col" class="text-center">NO.</th>
+                        <th scope="col" class="text-center">MEDICINE ID</th>
+                        <th scope="col" class="text-center">MEDICINE NAME</th>
+                        <th scope="col" class="text-center">MEDICINE QUANTITY</th>
+                        <th scope="col" class="text-center">MEDICINE EXP</th>
+                        <th scope="col" class="text-center">MEDICINE BATCH NO.</th>
+                        <th scope="col" class="text-center">MEDICINE SUPPLIER</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-primary" *ngFor='let us of listData'>
+                        <td class="text-center" scope="row">{{us.id}}</td>
+                        <td class="text-center">{{us.medicineID}}</td>
+                        <td class="text-center">{{us.medicineName}}</td>
+                        <td class="text-center">{{us.medicineQuantity}}</td>
+                        <td class="text-center">{{us.medicineEXP}}</td>
+                        <td class="text-center">{{us.medicineBatchNo}}</td>
+                        <td class="text-center">{{us.medicineSupplier}}</td>
+                        <td></td>
+                        <td class="d-flex">
+                            <button [routerLink]="['/updateinventory', us.id]" class="btn btn-primary">EDIT</button>
+                            &nbsp;
+                            <button (click)="deleteConfirmation(us.id)" class="btn btn-danger">REMOVE</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
